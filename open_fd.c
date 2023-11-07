@@ -29,7 +29,7 @@ void children(char **paths, char *comun, char **envp, int fdpipe[2])
     
 }
 
-void children2(char **paths, char *comun, char **envp, int fdpipe[2])
+void children2(char **paths, char *comun, char **envp, int fdpipe[2], int fd2)
 {
     int     i;
     char    **arguments;
@@ -50,7 +50,8 @@ void children2(char **paths, char *comun, char **envp, int fdpipe[2])
                 close(fdpipe[0]);
                 dup2(fdpipe[0], STDIN_FILENO);
                 close(fdpipe[1]);
-
+                dup2(fd2, STDOUT_FILENO);
+        
                 execve(command, arguments, envp);
             }
         }

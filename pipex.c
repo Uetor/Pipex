@@ -33,16 +33,18 @@ int	main(int argc, char **argv, char **envp)
 	int		fdpipe[2];
 	int		status;
 	int		fd;
+	int		fd2;
 	
 	if (argc == 5)
 	{
 		paths = find_path(envp);
 		fd = open(argv[1], O_RDONLY);
+		fd2 = open(argv[4], O_WRONLY);
    	 	dup2(fd, STDIN_FILENO);
 		pipe(fdpipe);
 		children(paths, argv[2], envp, fdpipe);
 		dup2(fdpipe[0], STDIN_FILENO);
-		children2(paths, argv[3], envp, fdpipe);
+		children2(paths, argv[3], envp, fdpipe, fd2);
 		close(fdpipe[0]);
 		close(fdpipe[1]);
 		wait(&status);
