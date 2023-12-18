@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pedro <pedro@student.42.fr>                +#+  +:+       +#+         #
+#    By: pedrogon <pedrogon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 02:36:59 by pedrogon          #+#    #+#              #
-#    Updated: 2023/08/16 03:09:07 by pedro            ###   ########.fr        #
+#    Updated: 2023/12/18 19:04:48 by pedrogon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= pipex
-SRC			= pipex.c open_fd.c
+SRC			= pipex.c open_fd.c Errors.c
 
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
